@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ACID red-side diode
+Name[fr]=Diode ACID (rouge)
+Comment=
+Icon=cryptclt-red
+Type=Application
+Categories=Utility;
+Exec=cryptclt_red

@@ -1,0 +1,322 @@
+# CLIP ChangeLog for app-crypt/cryptclt
+
+*cryptclt-red-2.4.23 (22 Dec 2016)
+
+  22 Dec 2016; Alain Ozanne <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.23.ebuild, -cryptclt-red-2.4.22.ebuild:
+  Modify in code dependency on clip-emblem.
+
+*cryptclt-red-2.4.22 (12 Jan 2016)
+
+  12 Jan 2016; Yves-Alexis Perez <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.22.ebuild, -cryptclt-red-2.4.21.ebuild:
+  Fix build on amd64 by handling uint32_t/size_t conversions.
+
+  12 Jan 2016; Yves-Alexis Perez <clipos@ssi.gouv.fr>
+  cryptclt-red-2.4.21.ebuild:
+  Add (masked) amd64 keyword.
+
+*cryptclt-red-2.4.21 (21 Apr 2015)
+
+  21 Apr 2015; Yves-Alexis Perez <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.21.ebuild, -cryptclt-red-2.4.20-r1.ebuild:
+  Sync with cryptclt-black
+
+*cryptclt-red-2.4.20-r1 (30 Jan 2015)
+
+  30 Jan 2015; Thomas Letan <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.20-r1.ebuild, -cryptclt-red-2.4.20.ebuild:
+  Sync with cryptclt-black
+
+*cryptclt-red-2.4.20 (23 Jan 2015)
+
+  23 Jan 2015; Alain Ozanne <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.20.ebuild, -cryptclt-red-2.4.19-r2.ebuild,
+  -origin-setting-for-rmh-decrypted-files.patch,
+  -origin-setting-for-rmb-to-rmh-cleartext-files.patch: move the patches to
+  the source code in clip-dev.
+
+*cryptclt-red-2.4.19-r2 (29 Dec 2014)
+
+  29 Dec 2014; Alain Ozanne <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.19-r2.ebuild, -cryptclt-red-2.4.19-r1.ebuild,
+  +origin-setting-for-rmh-decrypted-files.patch:
+  set the origin of decrypted files in rmh as rmh, assuming they come from a DR
+  level.
+
+*cryptclt-red-2.4.19-r1 (23 Dec 2014)
+
+  23 Dec 2014; Alain Ozanne <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.19-r1.ebuild,-cryptclt-red-2.4.19.ebuild,
+  +origin-setting-for-rmb-to-rmh-cleartext-files.patch:
+  set the rmb origin of cleartext files transferred from rmb to rmh.
+
+*cryptclt-red-2.4.19 (23 Jan 2014)
+
+  23 Jan 2014; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.19.ebuild, -cryptclt-red-2.4.18.ebuild:
+  Build fix - missing unistd include.
+
+*cryptclt-red-2.4.18 (08 Apr 2013)
+
+  08 Apr 2013; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.18.ebuild, -cryptclt-red-2.4.17.ebuild:
+  Bump to follow black update.
+
+*cryptclt-red-2.4.17 (22 Mar 2013)
+
+  22 Mar 2013; Mickaël Salaün <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.17.ebuild, -cryptclt-red-2.4.16.ebuild:
+  Fix submenu typo.
+
+*cryptclt-red-2.4.16 (14 Mar 2013)
+
+  14 Mar 2013; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.16.ebuild, -cryptclt-red-2.4.15.ebuild:
+  UTF-8 fixes.
+
+*cryptclt-red-2.4.15 (14 Feb 2013)
+
+  14 Feb 2013; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.15.ebuild, -cryptclt-red-2.4.14.ebuild:
+  Display max authorized size when refusing to transmit a 
+  file to the diode.
+  Move servicemenus to a dedicated toplevel submenu. Fix
+  desktop files.
+
+*cryptclt-red-2.4.14 (16 Nov 2012)
+
+  16 Nov 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.14.ebuild, -cryptclt-red-2.4.13.ebuild:
+  Add support for CMD_DELETE.
+
+*cryptclt-red-2.4.13 (11 Sep 2012)
+
+  11 Sep 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.13.ebuild, -cryptclt-red-2.4.12.ebuild:
+  Fix txtId extraction from UTF-8 command line. 
+
+*cryptclt-red-2.4.12 (06 Sep 2012)
+
+  06 Sep 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.12.ebuild, -cryptclt-red-2.4.11.ebuild:
+  Fix for filename encoding in CSA archives.
+
+*cryptclt-red-2.4.11 (01 Jun 2012)
+
+  01 Jun 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.11.ebuild, -cryptclt-red-2.4.10.ebuild:
+  Heh, more UTF-8 fixes.
+
+*cryptclt-red-2.4.10 (31 May 2012)
+
+  31 May 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.10.ebuild, -cryptclt-red-2.4.9-r1.ebuild:
+  Bump to follow black upgrade.
+
+*cryptclt-red-2.4.9-r1 (20 Apr 2012)
+
+  20 Apr 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.9-r1.ebuild, -cryptclt-red-2.4.9.ebuild:
+  Add CATEGORY_FR.
+
+*cryptclt-red-2.4.9 (17 Apr 2012)
+
+  17 Apr 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.9.ebuild, -cryptclt-red-2.4.8.ebuild:
+  Fix inverted BAD_PERS error messages.
+
+*cryptclt-red-2.4.8 (16 Apr 2012)
+
+  16 Apr 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.8.ebuild, -cryptclt-red-2.4.7.ebuild:
+  Smallish fixes - unfreeze password dialog on error, better
+  initialization of default paths, auto-suggest archive id.
+
+*cryptclt-red-2.4.7 (12 Apr 2012)
+
+  12 Apr 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.7.ebuild, -cryptclt-red-2.4.6.ebuild:
+  Better handling of server-side cancelled operations
+
+*cryptclt-red-2.4.6 (19 Jan 2012)
+
+  19 Jan 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.6.ebuild, -cryptclt-red-2.4.5.ebuild:
+  Guess what - more UTF-8 fixes :(
+
+*cryptclt-red-2.4.5 (19 Jan 2012)
+
+  19 Jan 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.5.ebuild, -cryptclt-red-2.4.4.ebuild:
+  More UTF-8 fixes.
+
+*cryptclt-red-2.4.4 (19 Jan 2012)
+
+  19 Jan 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.4.ebuild, -cryptclt-red-2.4.3.ebuild:
+  Switch strings encoding to UTF-8.
+
+*cryptclt-red-2.4.3 (03 Jan 2012)
+
+  03 Jan 2012; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.3.ebuild, -cryptclt-red-2.4.2.ebuild:
+  Add icons :)
+
+*cryptclt-red-2.4.2 (21 Apr 2011)
+
+  21 Apr 2011; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.2.ebuild, -cryptclt-red-2.4.1.ebuild:
+  Support encryption without recipients.
+
+*cryptclt-red-2.4.1 (21 Apr 2011)
+
+  21 Apr 2011; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.1.ebuild, -cryptclt-red-2.4.0.ebuild:
+  Fix ID list refresh on decrypt tab activation.
+
+*cryptclt-red-2.4.0 (19 Apr 2011)
+
+  19 Apr 2011; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.4.0.ebuild, -cryptclt-red-2.3.3.ebuild:
+  Add cryptclt_decrypt utility, and a symlink to it in 
+  /usr/local/etc/alt.
+
+*cryptclt-red-2.3.3 (04 Jan 2011)
+
+  04 Jan 2011; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.3.3.ebuild, -cryptclt-red-2.3.2.ebuild:
+  Bump to follow black update.
+
+*cryptclt-red-2.3.2 (28 Sep 2010)
+
+  28 Sep 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.3.2.ebuild, -cryptclt-red-2.3.1.ebuild:
+  Fix frmWait dialogs.
+
+*cryptclt-red-2.3.1 (22 Sep 2010)
+
+  22 Sep 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.3.1.ebuild, -cryptclt-red-2.3.0.ebuild:
+  Bump to follow cryptclt-black bump.
+
+*cryptclt-red-2.3.0 (09 Aug 2010)
+
+  09 Aug 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.3.0.ebuild, -cryptclt-red-2.2.0.ebuild:
+  Support for RM_H-only encryption / decryption.
+  Switch to EAPI 3.
+
+*cryptclt-red-2.2.0 (12 May 2010)
+
+  12 May 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.2.0.ebuild, -cryptclt-red-2.1.0.ebuild:
+  Multiple new features - checks for redundant recipients,
+  batch mode, sender is now included in recipients, paths
+  are saved and restored.
+
+*cryptclt-red-2.1.0 (03 May 2010)
+
+  03 May 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.1.0.ebuild, -cryptclt-red-2.0.1.ebuild:
+  Support password change.
+
+*cryptclt-red-2.0.1 (30 Apr 2010)
+
+  30 Apr 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.0.1.ebuild, -cryptclt-red-2.0.0.ebuild:
+  Drag'n Drop fixes.
+
+*cryptclt-red-2.0.0 (30 Apr 2010)
+
+  30 Apr 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-2.0.0.ebuild, -cryptclt-red-1.3.0-r1.ebuild:
+  Brand new Qt4 version. Yeepee.
+
+*cryptclt-red-1.3.0-r1 (22 Apr 2010)
+
+  22 Apr 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.3.0-r1.ebuild, -cryptclt-red-1.3.0.ebuild:
+  clip-deps fix.
+
+*cryptclt-red-1.3.0 (19 Apr 2010)
+
+  19 Apr 2010; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.3.0.ebuild, -cryptclt-red-1.2.2.ebuild,
+  -files/_debian:
+  Support new features from cryptd-1.4.0 - crypto error notification,
+  info requests. Move red/black common part to acid7-utils.
+
+*cryptclt-red-1.2.2 (17 Dec 2009)
+
+  17 Dec 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.2.2.ebuild, -cryptclt-red-1.2.1.ebuild:
+  Fix kde3 servicemenu.
+
+*cryptclt-red-1.2.1 (15 Dec 2009)
+
+  15 Dec 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.2.1.ebuild, -cryptclt-red-1.2.0.ebuild,
+  +files/_debian/postinst,+files/_debian/postrm:
+  Add support for kde4. Clarify servicemenu titles.
+  Add option to select different path instead of overwriting
+  existing files (red and up client).
+
+*cryptclt-red-1.2.0 (06 Oct 2009)
+
+  06 Oct 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.2.0.ebuild, -cryptclt-red-1.1.5-r1.ebuild:
+  Switch to cryptd-client-*-1.3.0 API. Add overwrite warning.
+
+*cryptclt-red-1.1.5-r1 (28 Sep 2009)
+
+  28 Sep 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.5-r1.ebuild, -cryptclt-red-1.1.5.ebuild:
+  Bump to add CLIP-Jails.
+
+  19 Aug 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  cryptclt-red-1.1.5.ebuild:
+  Added DESCRIPTION_FR. Fix build with qt4 present.
+
+*cryptclt-red-1.1.5 (29 Jul 2009)
+
+  29 Jul 2009; Olivier Levillain <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.5.ebuild, -cryptclt-red-1.1.4.ebuild:
+  Add desktop action scripts and quick buttons.
+
+*cryptclt-red-1.1.3 (18 May 2009)
+
+  18 May 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.3.ebuild, -cryptclt-red-1.1.2.ebuild:
+  Fix localization.
+
+*cryptclt-red-1.1.2 (12 May 2009)
+
+  12 May 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.2.ebuild, -cryptclt-red-1.1.1.ebuild:
+  More precise errors.
+
+*cryptclt-red-1.1.1 (07 May 2009)
+
+  07 May 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.1.ebuild, -cryptclt-red-1.1.0.ebuild:
+  Fix mimetypes and icons.
+
+*cryptclt-red-1.1.0 (30 Apr 2009)
+
+  30 Apr 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.1.0.ebuild, -cryptclt-red-1.0.1.ebuild:
+  Support diode functionality and public key import.
+
+*cryptclt-red-1.0.1 (16 Apr 2009)
+
+  16 Apr 2009; Vincent Strubel <clipos@ssi.gouv.fr>
+  +cryptclt-red-1.0.1.ebuild, -cryptclt-red-1.0.ebuild:
+  Bump. Fix compile issues with gcc-4. Change .desktop entries
+  paths.
+
+*cryptd-client-black-1.0 (20 Mar 2009)
+
+  20 Mar 2009; Olivier Levillain <clipos@ssi.gouv.fr>
+  +cryptdclt-1.0.ebuild:
+  Initial import.

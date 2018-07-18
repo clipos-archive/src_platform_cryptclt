@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Actions=export;
+X-KDE-Submenu=Acid actions
+X-KDE-Submenu[fr]=Actions Acid
+X-KDE-Priority=TopLevel
+
+[Desktop Action export]
+Name=Export encrypted archives from ACID diode
+Name[fr]=Transférer des chiffrés depuis la diode ACID dans ce répertoire
+Icon=cryptclt-black
+Exec=cryptclt_black -e %f

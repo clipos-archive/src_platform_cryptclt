@@ -1,0 +1,228 @@
+################# configure part ##############################
+CC = @CC@
+CXX = @CXX@
+MOC = /usr/bin/moc
+srcdir = @srcdir@
+SHELL = @SHELL@
+PREFIX = @prefix@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@
+
+red_socket_path = @red_socket_path@
+black_socket_path = @black_socket_path@
+build_red = @build_red@
+build_black = @build_black@
+enable_diode = @enable_diode@
+ccsd_includes = @ccsd_includes@
+
+CFLAGS = @CFLAGS@ -D_FILE_OFFSET_BITS=64 -Wall -W
+CXXFLAGS = @CXXFLAGS@ -D_FILE_OFFSET_BITS=64 -DRED_SOCKET_PATH=\"${red_socket_path}\" -DBLACK_SOCKET_PATH=\"${black_socket_path}\" -Wall -W
+LDFLAGS = @LDFLAGS@ @QT4_GUI_LIBS@ -lacidfile -lEmblemConfiguration
+
+IFLAGS = -I. -I/usr/include/cryptd -I${ccsd_includes} @QT4_GUI_CFLAGS@ -DPREFIX=\"${PREFIX}\"
+
+COMMON_MOC := 		MultipleFileField.moc.cpp		\
+			PubKeysFileField.moc.cpp		\
+			SinglePrivateKeyFileField.moc.cpp	\
+			SingleFileField.moc.cpp			\
+			FileField.moc.cpp
+
+COMMON_SRC :=		common.cpp			\
+			MultipleFileField.cpp		\
+			PubKeysFileField.cpp		\
+			SingleFileField.cpp		\
+			SinglePrivateKeyFileField.cpp	\
+			FileField.cpp
+
+CLIENT_RED := cryptclt_red
+CLIENT_RED_MOC =	frmClientRed.moc.cpp		\
+			DecryptFrame.moc.cpp		\
+			frmWait.moc.cpp			\
+			${COMMON_MOC}
+
+CLIENT_RED_SRC =	${COMMON_SRC}		\
+			RedThreads.cpp		\
+			DecryptFrame.cpp	\
+			frmWait.cpp		\
+			frmClientRed.cpp	\
+		    	cryptclt_red.cpp	\
+			${CLIENT_RED_MOC}
+CLIENT_DEC := cryptclt_decrypt
+CLIENT_DEC_MOC =	frmClientDecrypt.moc.cpp		\
+			DecryptFrame.moc.cpp		\
+			frmWait.moc.cpp			\
+			${COMMON_MOC}
+
+CLIENT_DEC_SRC =	${COMMON_SRC}		\
+			RedThreads.cpp		\
+			DecryptFrame.cpp	\
+			frmWait.cpp		\
+			frmClientDecrypt.cpp	\
+		    	cryptclt_decrypt.cpp	\
+			${CLIENT_DEC_MOC}
+
+
+CLIENT_BLACK := cryptclt_black
+CLIENT_BLACK_MOC =	frmClientBlack.moc.cpp	\
+			${COMMON_MOC}
+
+CLIENT_BLACK_SRC =	${COMMON_SRC}		\
+			frmClientBlack.cpp	\
+		    	cryptclt_black.cpp	\
+			${CLIENT_BLACK_MOC}
+
+CLIENT_UP := cryptclt_up
+CLIENT_UP_MOC :=	frmClientUp.moc.cpp		\
+			${COMMON_MOC}
+
+CLIENT_UP_SRC :=	${COMMON_SRC}		\
+			frmClientUp.cpp 	\
+		    	cryptclt_up.cpp		\
+			${CLIENT_UP_MOC}
+
+CLIENT_DOWN := cryptclt_down
+CLIENT_DOWN_MOC :=	frmClientDown.moc.cpp		\
+			frmWait.moc.cpp			\
+			${COMMON_MOC}
+
+CLIENT_DOWN_SRC :=	${COMMON_SRC}		\
+			frmClientDown.cpp 	\
+			ClamCheck.cpp		\
+			frmWait.cpp		\
+		    	cryptclt_down.cpp	\
+			${CLIENT_DOWN_MOC}
+
+EXES :=
+
+ifeq (${build_red}, yes)
+EXES += ${CLIENT_RED} ${CLIENT_DEC}
+ifeq (${enable_diode}, yes)
+EXES += ${CLIENT_UP}
+endif
+endif
+ifeq (${build_black}, yes)
+EXES += ${CLIENT_BLACK}
+ifeq (${enable_diode}, yes)
+EXES += ${CLIENT_DOWN}
+endif
+endif
+
+
+.PHONY: all build install uninstall clean mrproper
+
+all: build
+
+###############################################################
+ifndef VERBOSE
+MAKEFLAGS += -s --no-print-directory
+ECHO = echo
+else 
+ECHO = echo > /dev/null
+endif
+
+OBJS_DIR ?= obj
+CLIENT_RED_OBJFILES := ${foreach file, ${patsubst %.cpp,%.o,${CLIENT_RED_SRC}}, ${OBJS_DIR}/${file}}
+CLIENT_DEC_OBJFILES := ${foreach file, ${patsubst %.cpp,%.o,${CLIENT_DEC_SRC}}, ${OBJS_DIR}/${file}}
+CLIENT_BLACK_OBJFILES := ${foreach file, ${patsubst %.cpp,%.o,${CLIENT_BLACK_SRC}}, ${OBJS_DIR}/${file}}
+CLIENT_UP_OBJFILES := ${foreach file, ${patsubst %.cpp,%.o,${CLIENT_UP_SRC}}, ${OBJS_DIR}/${file}}
+CLIENT_DOWN_OBJFILES := ${foreach file, ${patsubst %.cpp,%.o,${CLIENT_DOWN_SRC}}, ${OBJS_DIR}/${file}}
+
+DEPS_DIR = ${OBJS_DIR}/.deps
+CLIENT_RED_DEPFILES := ${foreach file, ${basename ${CLIENT_RED_SRC}}, ${DEPS_DIR}/${file}.d}
+CLIENT_DEC_DEPFILES := ${foreach file, ${basename ${CLIENT_DEC_SRC}}, ${DEPS_DIR}/${file}.d}
+CLIENT_BLACK_DEPFILES := ${foreach file, ${basename ${CLIENT_BLACK_SRC}}, ${DEPS_DIR}/${file}.d}
+CLIENT_UP_DEPFILES := ${foreach file, ${basename ${CLIENT_UP_SRC}}, ${DEPS_DIR}/${file}.d}
+CLIENT_DOWN_DEPFILES := ${foreach file, ${basename ${CLIENT_DOWN_SRC}}, ${DEPS_DIR}/${file}.d}
+
+OBJFILES := ${CLIENT_RED_OBJFILES} ${CLIENT_DEC_OBJFILES} ${CLIENT_UP_OBJFILES} ${CLIENT_BLACK_OBJFILES} ${CLIENT_DOWN_OBJFILES}
+DEPFILES := ${CLIENT_RED_DEPFILES} ${CLIENT_DEC_DEPFILES} ${CLIENT_UP_DEPFILES} ${CLIENT_BLACK_DEPFILES} ${CLIENT_DOWN_DEPFILES}
+MOCFILES := ${CLIENT_RED_MOC} ${CLIENT_DEC_MOC} ${CLIENT_UP_MOC} ${CLIENT_BLACK_MOC} ${CLIENT_DOWN_MOC}
+
+###############################################################
+
+${OBJS_DIR}:
+	mkdir -p ${OBJS_DIR}
+
+${DEPS_DIR}:
+	mkdir -p ${DEPS_DIR}
+
+
+${OBJS_DIR}/%.o:%.cpp Makefile
+	@${ECHO} "        CXX      $<"
+	$(CXX) $(CXXFLAGS) $(IFLAGS) -MT $@ -MD -MP -MF ${DEPS_DIR}/$*.d -c -o $@ $<
+
+%.moc.cpp: %.h Makefile
+	@${ECHO} "        MOC      $<"
+	$(MOC) -o $@ $<
+
+${CLIENT_RED}: ${CLIENT_RED_OBJFILES}
+	@${ECHO} "        LD       $@"
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -lcryptdcr -lclip
+
+${CLIENT_DEC}: ${CLIENT_DEC_OBJFILES}
+	@${ECHO} "        LD       $@"
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -lcryptdcr -lclip
+
+${CLIENT_UP}: ${CLIENT_UP_OBJFILES}
+	@${ECHO} "        LD       $@"
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -lcryptdcr -lclip
+
+${CLIENT_BLACK}: ${CLIENT_BLACK_OBJFILES}
+	@${ECHO} "        LD       $@"
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -lcryptdcb -lclip
+
+${CLIENT_DOWN}: ${CLIENT_DOWN_OBJFILES}
+	@${ECHO} "        LD       $@"
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -lcryptdcb -lclip
+
+
+cryptclt_black.cpp: cryptclt.cpp Makefile
+	@${ECHO} "        SED      $@"
+	sed 's/frmClient/frmClientBlack/' < $< > $@
+
+cryptclt_red.cpp: cryptclt.cpp Makefile
+	@${ECHO} "        SED      $@"
+	sed 's/frmClient/frmClientRed/' < $< > $@
+
+cryptclt_decrypt.cpp: cryptclt.cpp Makefile
+	@${ECHO} "        SED      $@"
+	sed 's/frmClient/frmClientDecrypt/' < $< > $@
+
+cryptclt_up.cpp: cryptclt.cpp Makefile
+	@${ECHO} "        SED      $@"
+	sed 's/frmClient/frmClientUp/' < $< > $@
+
+cryptclt_down.cpp: cryptclt.cpp Makefile
+	@${ECHO} "        SED      $@"
+	sed 's/frmClient/frmClientDown/' < $< > $@
+
+
+build: ${OBJS_DIR} ${DEPS_DIR} ${MOCFILES} ${EXES}
+
+install: build
+	list='$(EXES)'; for exe in $$list; do \
+		${ECHO} "        INST              ${DESTDIR}${bindir}/$$exe" ;\
+		install -D $$exe ${DESTDIR}${bindir}/$$exe ;\
+	done
+
+uninstall: 
+	list='$(EXES)'; for exe in $$list; do \
+		${ECHO} "        RM                ${DESTDIR}${bindir}/$$exe" ;\
+		rm -f  ${DESTDIR}${bindir}/$$exe ;\
+	done
+
+clean:
+	@${ECHO} "        CLEAN             ${EXES} ${OBJFILES} cryptclt_red.cpp cryptclt_black.cpp cryptclt_up.cpp cryptclt_down.cpp"
+	rm -f ${EXES} ${OBJFILES} ${DEPFILES} cryptclt_red.cpp cryptclt_decrypt.cpp cryptclt_black.cpp cryptclt_up.cpp cryptclt_down.cpp
+
+mrproper: clean
+	rmdir ${DEPS_DIR} ${OBJS_DIR}
+	rm -f Makefile
+
+
+Makefile: Makefile.in ../config.status
+	cd .. && ./config.status && cd src
+
+
+-include ${DEPFILES}

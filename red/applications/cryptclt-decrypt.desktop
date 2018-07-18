@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=ACID decrypt
+Name[fr]=Déchiffrement ACID
+Icon=cryptclt-red
+Type=Application
+NoDisplay=true
+MimeType=application/acid7-csa;
+TryExec=cryptclt_decrypt
+Exec=cryptclt_decrypt

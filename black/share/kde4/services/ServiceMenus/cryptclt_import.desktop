@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/acid7-csa;
+Actions=decrypt;
+X-KDE-Submenu=Acid actions
+X-KDE-Submenu[fr]=Actions Acid
+X-KDE-Priority=TopLevel
+
+[Desktop Action decrypt]
+Name=Transfer into ACID diode (for decryption)
+Name[fr]=Transférer dans la diode ACID (pour déchiffrement)
+Icon=cryptclt-black
+Exec=cryptclt_black -i %F

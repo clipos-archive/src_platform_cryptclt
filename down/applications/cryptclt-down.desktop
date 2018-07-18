@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Diode downside client
+Name[fr]=Diode montante (niveau bas)
+Comment=
+Icon=cryptclt-down
+Type=Application
+Categories=Utility;
+Exec=cryptclt_down

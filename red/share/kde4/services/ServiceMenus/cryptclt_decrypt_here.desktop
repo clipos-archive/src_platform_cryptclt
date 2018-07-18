@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory
+Actions=decrypthere;
+X-KDE-Submenu=Acid actions
+X-KDE-Submenu[fr]=Actions Acid
+X-KDE-Priority=TopLevel
+
+[Desktop Action decrypthere]
+Name=Decrypt with ACID diode into this directory
+Name[fr]=Déchiffrer depuis la diode ACID dans ce répertoire
+Icon=cryptclt-red
+Exec=cryptclt_red -d %f

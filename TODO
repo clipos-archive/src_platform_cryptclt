@@ -1,0 +1,7 @@
+ - ajout des dépendances acid file, libclip dans l'ebuild
+ - normaliser les noms !
+ - utiliser des desktop.in ?
+ - problemes avec qt_fr.qm
+ - ajout d'un grisé des boutons quand tout n'est pas rempli
+ - Faire un répertoire doc et utiliser doxygen + pages man
+ - modifier configure.ac pour les dépendances libcryptdcr et cb

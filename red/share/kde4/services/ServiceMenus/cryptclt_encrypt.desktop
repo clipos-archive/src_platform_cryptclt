@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/allfiles;
+Actions=encrypt;
+X-KDE-Submenu=Acid actions
+X-KDE-Submenu[fr]=Actions Acid
+X-KDE-Priority=TopLevel
+
+[Desktop Action encrypt]
+Name=Encrypt with ACID diode
+Name[fr]=Chiffrer avec la diode ACID
+Icon=cryptclt-red
+Exec=cryptclt_red -c %F

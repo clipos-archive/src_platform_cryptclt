@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;
+Actions=import;
+
+[Desktop Action import]
+Name=Import from diode
+Name[fr]=Transférer depuis la diode montante dans ce répertoire
+Icon=cryptclt-up
+Exec=cryptclt_up -d %f

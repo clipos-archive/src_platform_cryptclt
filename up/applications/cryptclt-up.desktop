@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Diode upside client
+Name[fr]=Diode montante (niveau haut)
+Comment=
+Icon=cryptclt-up
+Type=Application
+Categories=Utility;
+Exec=cryptclt_up

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ACID black-side client
+Name[fr]=Diode ACID (noir)
+Comment=
+Icon=cryptclt-black
+Type=Application
+Categories=Utility;
+Exec=cryptclt_black
